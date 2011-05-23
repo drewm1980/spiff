@@ -13,6 +13,7 @@ MANINSDIR=/usr/local/share/man/man1
 
 #CC=cc
 #CC=gcc #bork
+#CC=gcc -traditional -E #bork
 #CC=clang # bork
 CC=icc # works!
 
