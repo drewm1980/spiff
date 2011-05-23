@@ -6,9 +6,15 @@
 #
 #	name of the directory into which the binary should be installed
 #		used only when you use  'make install'
-#	(Executable goes to $INSDIR/bin, man page to $INSDIR/man/man1
-#
+#	(Executable goes to $INSDIR, man page to $MANINSDIR
+#	
 INSDIR=/usr/local/bin
+MANINSDIR=/usr/local/share/man/man1
+
+#CC=cc
+#CC=gcc #bork
+#CC=clang # bork
+CC=icc # works!
 
 #
 #	choose one from each of 1) 2) and 3) below
@@ -67,7 +73,6 @@ TLIB=termcap
 #       BELLCORE MAKES NO WARRANTY AND ACCEPTS NO LIABILITY FOR THIS PROGRAM.
 #
 
-CC=cc
 OBJ= spiff.o output.o compare.o float.o strings.o exact.o miller.o parse.o command.o comment.o tol.o line.o token.o floatrep.o misc.o visual.o
 CFILES= spiff.c output.c compare.c float.c strings.c exact.c miller.c parse.c command.c comment.c tol.c line.c floatrep.c token.c misc.c visual.c
 HFILES=misc.h strings.h line.h float.h floatrep.h tol.h command.h comment.h token.h edit.h parse.h compare.h flagdefs.h exact.h miller.h visual.h output.h
@@ -138,6 +143,6 @@ cpio:
 cmd:
 	-$(CMD) $(CFILES) $(HFILES) $(OTHER) $(MANPAGE)
 install:
-	mv spiff $(INSDIR)/bin
-	cp $(MANPAGE) $(INSDIR)/man/man1
+	cp spiff $(INSDIR)
+	cp $(MANPAGE) $(MANINSDIR)
 	

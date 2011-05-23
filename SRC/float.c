@@ -367,7 +367,7 @@ F_floatsub(p1,p2)
 F_float  p1,p2;
 {
 	static F_float result;
-	static needinit = 1;
+	static int needinit = 1;
 	static char man1[R_MANMAX],man2[R_MANMAX],diff[R_MANMAX];
 	int exp1,exp2;
 	char *diffptr,*big,*small;
